@@ -8,7 +8,6 @@ from django.http import JsonResponse
 # from . import forms
 from django.views.decorators.csrf import csrf_exempt
 from django.urls import reverse
-from elasticsearch import Elasticsearch
 
 @csrf_exempt
 def index(request):
