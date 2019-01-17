@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<head>
+	<title>Job Jungle</title>
+</head>
+<body style="background-color: #f2f2f2">
+	<nav class="navbar navbar-default" style="background-color: #cef7f2">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="/">Job Jungle</a>
+	    </div>
+	    <form method="post" action = '/search/'> 
+	     		<input style="float: left; width: 290px; margin-top: 1%" type="text" name="Search" placeholder="Search by Location, Company, or Title">    		
+		</form>  
+	    <ul class="nav navbar-nav">
+	    </ul>
+  	</nav>
+  	<div class = "job" style = "margin-left:4%;">
+	{% if job.title != None %}
+		<h1> {{ job.title }}  - {{ job.location }} </h1>
+		<h3> {{ job.company }} </h3>
+		<br>
+		{{ job.description | safe }}
+
+		<h1> Interested? Apply Here! </h1>
+		<p> {{ job.appLink | safe }}
+		<br>
+
+	</div>
+		  		
+	{% else %}
+		<p> Whoops! This item does not exist. </p>	
+	{% endif %}
+		
+
+</html>

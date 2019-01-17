@@ -1,0 +1,17 @@
+.jumbotron {
+	min-height: 300px;
+	margin-top: -20px;
+	margin-left: -12px;
+	left:100px;
+	margin-top:-5%;
+}
+
+.brand {
+	text-align: center;
+	font-family: 'roboto';
+}
+
+
+.container {
+	width: 100%;
+}

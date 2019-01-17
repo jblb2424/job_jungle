@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static from staticfiles %}
+<html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'index.css' %}" />
+<head>
+	<title>Job Jungle!</title>
+</head>
+<body style="background-color: #f2f2f2">
+	<nav class="navbar navbar-default" style="background-color: #cef7f2">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="/">Job Jungle</a>
+	    </div>
+	    <form method="post" action = '/search/'> 
+	     		<input style="float: left; width: 290px; margin-top: 1%" type="text" name="Search" placeholder="Search by Location, Company, or Title">    		
+		</form>  
+	    <ul class="nav navbar-nav">
+	    </ul>
+  	</nav>
+	<div class="container" style = "min-height: 300px;margin-top: -20px; margin-left: -12px;left:100px;margin-top:-5%;width:102%;">
+	<div class="jumbotron" style = "text-align:center; backround-color:#B0B0B0;">
+		<h1 class = "brand" style = "font-family: Comic Sans MS;">Job Jungle</h1> 
+		<br>
+		<p style = "font-family: Comic Sans MS;"> <i>"Establish Your Roots. Swing Into Your Career" <i> </p> 
+
+		
+	</div>
+	</div>
+	<div class = "listings" style = "padding-left:6%;">
+		{% for job in jobs %}
+			<a href="/jobs/{{ job.id }}">
+			<div class="panel panel-info" style="margin:0;text-align:center;width: 30%;float: left; margin: 10px">
+			
+				<div class="panel-heading"> {{ job.company }}</div>
+	  			<div class="panel-body"> {{ job.title }}</div>
+			</div>
+			</a>
+		{% endfor %}
+	</div>
+
+
+
+
+	</div>
+</body>
+</html>
