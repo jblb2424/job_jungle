@@ -9,6 +9,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.urls import reverse
 
+#URLLIB request to my api endpoint to get all job listings
 @csrf_exempt
 def index(request):
 	req_jobs= urllib.request.Request('http://localhost:8000/api/v1/jobs/')
@@ -17,7 +18,7 @@ def index(request):
 	return render(request, 'index.html', {"jobs" : resp} )
 
 
-
+#Adding an ID to end of job endpoint provides detailed information on one instance
 def details(request,pk):
 	req_details= urllib.request.Request('http://localhost:8000/api/v1/jobs/' + pk)
 	resp_details= urllib.request.urlopen(req_details).read().decode('utf-8')
@@ -27,6 +28,8 @@ def details(request,pk):
 
 	return render(request, 'detail.html', {"job" : resp})
 
+#Checks if a search result was submitted
+#Pushes the result to my search endpoint to filter results against the keywords
 @csrf_exempt
 def search(request):
 	results = []
